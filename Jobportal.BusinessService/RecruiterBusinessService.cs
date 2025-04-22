@@ -19,6 +19,7 @@ namespace Jobportal.BusinessService
         JobApplication GetApplicationById(int applicationId);
         bool AddStatus(ApplicationStatus status);
         bool UpdateStatus(ApplicationStatus status);
+        List<Job> GetJobsByRecruiterId(int recruiterId);
     }
     public class RecruiterBusinessService : IRecruiterBusinessService
     {
@@ -53,6 +54,10 @@ namespace Jobportal.BusinessService
         public bool DeleteJob(int jobId)
         {
             return _recruiterService.DeleteJob(jobId);
+        }
+        public List<Job> GetJobsByRecruiterId(int recruiterId)
+        {
+            return _recruiterService.GetJobsByRecruiterId(recruiterId);
         }
         public List<JobApplication> GetApplicationsByJobSeeker(int jobSeekerId) => _recruiterService.GetApplicationsByJobSeeker(jobSeekerId);
 

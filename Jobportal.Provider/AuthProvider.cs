@@ -43,6 +43,7 @@ namespace Jobportal.Provider
             {
                 Direction = ParameterDirection.Output
             };
+
             cmd.Parameters.Add(statusCodeParam);
 
             SqlParameter messageParam = new SqlParameter("@p_ErrorMessage", SqlDbType.NVarChar, 1000)
@@ -50,6 +51,7 @@ namespace Jobportal.Provider
                 Direction = ParameterDirection.Output
             };
             cmd.Parameters.Add(messageParam);
+            
             conn.Open();
             return Convert.ToInt32(cmd.ExecuteScalar());
             cmd.ExecuteNonQuery();
@@ -86,6 +88,8 @@ namespace Jobportal.Provider
                             Direction = ParameterDirection.Output
                         };
                         cmd.Parameters.Add(messageParam);
+
+                        
 
                         conn.Open();
                         using (SqlDataReader reader = cmd.ExecuteReader())

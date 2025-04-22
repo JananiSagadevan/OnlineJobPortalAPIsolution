@@ -49,7 +49,7 @@ namespace OnlineJobPortalAPI.Controllers
             try
             {
                 bool result = _recruiterBusinessService.UpdateRecruiterProfile(profile);
-                return result ? Ok("Profile updated") : BadRequest("Update failed");
+                return result ? Ok(new { message="Profile updated" }) : BadRequest(new {message = "Update failed"});
             }
             catch (Exception ex)
             {
@@ -77,12 +77,35 @@ namespace OnlineJobPortalAPI.Controllers
             try
             {
                 bool result = _recruiterBusinessService.DeleteJob(jobId);
-                return result ? Ok("Deleted") : NotFound("Job not found");
+                return result ? Ok(new { message = "Deleted" }) : NotFound(new { message = "Job not found" });
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+        [HttpGet("getjobbyrecruiter")]
+        public IActionResult GetJobsByRecruiterId(int recruiterId)
+        {
+            try
+            {
+                var jobs = _recruiterBusinessService.GetJobsByRecruiterId(recruiterId);
+                return Ok(new
+                {
+                    status = "success",
+                    message = "Jobs retrieved successfully",
+                    data = jobs
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    status = "error",
+                    message = ex.Message
+                });
+            }
+
         }
 
         [HttpGet("GetApplicationsByJobSeekerbyid")]

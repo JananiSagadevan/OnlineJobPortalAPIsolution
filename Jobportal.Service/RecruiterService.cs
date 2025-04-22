@@ -18,6 +18,7 @@ namespace Jobportal.Service
         JobApplication GetApplicationById(int applicationId);
         bool AddStatus(ApplicationStatus status);
         bool UpdateStatus(ApplicationStatus status);
+       List<Job> GetJobsByRecruiterId(int recruiterId);
     }
 
     public class RecruiterService : IRecruiterService
@@ -55,7 +56,10 @@ namespace Jobportal.Service
         {
             return _recruiterProvider.DeleteJob(jobId);
         }
-
+        public List<Job> GetJobsByRecruiterId(int recruiterId)
+        {
+            return _recruiterProvider.GetJobsByRecruiterId(recruiterId);
+        }
         public List<JobApplication> GetApplicationsByJobSeeker(int jobSeekerId)
         {
             return _recruiterProvider.GetApplicationsByJobSeeker(jobSeekerId);

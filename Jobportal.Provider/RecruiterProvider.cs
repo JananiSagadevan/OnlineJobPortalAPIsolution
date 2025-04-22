@@ -22,6 +22,7 @@ namespace Jobportal.Provider
         JobApplication GetApplicationById(int applicationId);
         bool AddStatus(ApplicationStatus status);
         bool UpdateStatus(ApplicationStatus status);
+        public List<Job> GetJobsByRecruiterId(int recruiterId);
     }
 
     public class RecruiterProvider : IRecruiterProvider
@@ -292,7 +293,76 @@ namespace Jobportal.Provider
             }
         }
 
-        
+        public List<Job> GetJobsByRecruiterId(int recruiterId)
+        {
+            List<Job> jobs = new List<Job>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("GetJobsByRecruiterId", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Input parameter
+                        cmd.Parameters.AddWithValue("@RecruiterId", recruiterId);
+
+                        // Output parameters
+                        SqlParameter statusCodeParam = new SqlParameter("@p_output_status_code", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(statusCodeParam);
+
+                        SqlParameter messageParam = new SqlParameter("@p_output_status_message", SqlDbType.VarChar, 200)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(messageParam);
+
+                        con.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                jobs.Add(new Job
+                                {
+                                    JobId = Convert.ToInt32(reader["JobId"]),
+                                    RecruiterId = Convert.ToInt32(reader["RecruiterId"]),
+                                    JobTitle = reader["JobTitle"].ToString(),
+                                    CompanyName = reader["CompanyName"].ToString(),
+                                    Location = reader["Location"].ToString(),
+                                    EmploymentType = reader["EmploymentType"].ToString(),
+                                    Description = reader["Description"].ToString(),
+                                    Requirements = reader["Requirements"].ToString(),
+                                    PostedDate = Convert.ToDateTime(reader["PostedDate"]),
+                                    ApplicationDeadline = Convert.ToDateTime(reader["ApplicationDeadline"])
+                                });
+                            }
+                        }
+
+                        // Optional: log or handle the output status if needed
+                        int statusCode = (int)statusCodeParam.Value;
+                        string statusMessage = messageParam.Value?.ToString();
+
+                        if (statusCode == 0)
+                        {
+                            throw new Exception($"Stored Procedure Error: {statusMessage}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error (consider using Serilog, NLog, etc.)
+                throw new ApplicationException("An error occurred while fetching jobs by recruiter ID.", ex);
+            }
+
+            return jobs;
+        }
+
         public List<JobApplication> GetApplicationsByJobSeeker(int jobSeekerId)
         {
             List<JobApplication> applications = new List<JobApplication>();
