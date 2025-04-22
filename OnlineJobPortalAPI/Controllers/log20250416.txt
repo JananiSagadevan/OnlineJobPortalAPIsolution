@@ -1,0 +1,59 @@
+2025-04-16 15:15:16.145 +05:30 [INF] Now listening on: http://localhost:5174
+2025-04-16 15:15:21.634 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-16 15:15:21.635 +05:30 [INF] Hosting environment: Development
+2025-04-16 15:15:21.635 +05:30 [INF] Content root path: D:\.net\OnlineJobPortalAPIsolution\OnlineJobPortalAPI
+2025-04-16 15:15:33.438 +05:30 [WRN] As of ""2025-04-16T09:45:33.3161204+00:00"", the heartbeat has been running for ""00:00:01.4230548"" which is longer than ""00:00:01"". This could be caused by thread pool starvation.
+2025-04-16 15:15:33.953 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/swagger/index.html - null null
+2025-04-16 15:15:39.908 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/_vs/browserLink - null null
+2025-04-16 15:15:39.926 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/swagger/index.html - 200 null text/html;charset=utf-8 5779.1893ms
+2025-04-16 15:15:40.178 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-16 15:15:40.184 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - 200 16521 application/javascript; charset=utf-8 5.682ms
+2025-04-16 15:15:40.922 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1015.104ms
+2025-04-16 15:15:41.654 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - null null
+2025-04-16 15:15:41.817 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 162.8254ms
+2025-04-16 16:04:25.155 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-16 16:04:25.423 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - 200 16521 application/javascript; charset=utf-8 418.6243ms
+2025-04-16 16:04:25.941 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - null null
+2025-04-16 16:04:28.161 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2219.989ms
+2025-04-16 23:37:19.433 +05:30 [INF] Now listening on: http://localhost:5174
+2025-04-16 23:37:20.165 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-16 23:37:20.165 +05:30 [INF] Hosting environment: Development
+2025-04-16 23:37:20.165 +05:30 [INF] Content root path: D:\.net\OnlineJobPortalAPIsolution\OnlineJobPortalAPI
+2025-04-16 23:37:24.212 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/swagger/index.html - null null
+2025-04-16 23:37:26.217 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/swagger/index.html - 200 null text/html;charset=utf-8 2036.2372ms
+2025-04-16 23:37:27.169 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/_vs/browserLink - null null
+2025-04-16 23:37:27.172 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-16 23:37:27.174 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - 200 16521 application/javascript; charset=utf-8 2.4189ms
+2025-04-16 23:37:27.832 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 664.0399ms
+2025-04-16 23:37:28.589 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - null null
+2025-04-16 23:37:28.961 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/user/register" for actions - OnlineJobPortalAPI.Controllers.AuthController.Register (OnlineJobPortalAPI),OnlineJobPortalAPI.Controllers.AuthController.Register (OnlineJobPortalAPI),OnlineJobPortalAPI.Controllers.JobSeekerController.Register (OnlineJobPortalAPI). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-16 23:37:29.220 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 630.4692ms
+2025-04-16 23:43:08.911 +05:30 [INF] Now listening on: http://localhost:5174
+2025-04-16 23:43:16.533 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-16 23:43:16.534 +05:30 [INF] Hosting environment: Development
+2025-04-16 23:43:16.534 +05:30 [INF] Content root path: D:\.net\OnlineJobPortalAPIsolution\OnlineJobPortalAPI
+2025-04-16 23:43:25.920 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/swagger/index.html - null null
+2025-04-16 23:43:30.037 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/_vs/browserLink - null null
+2025-04-16 23:43:30.064 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/swagger/index.html - 200 null text/html;charset=utf-8 4536.1754ms
+2025-04-16 23:43:30.066 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-16 23:43:30.070 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/_framework/aspnetcore-browser-refresh.js - 200 16521 application/javascript; charset=utf-8 3.9312ms
+2025-04-16 23:43:30.125 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/_vs/browserLink - 200 null text/javascript; charset=UTF-8 89.3038ms
+2025-04-16 23:43:30.609 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - null null
+2025-04-16 23:43:31.439 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/user/register" for actions - OnlineJobPortalAPI.Controllers.AuthController.Register (OnlineJobPortalAPI),OnlineJobPortalAPI.Controllers.AuthController.Register (OnlineJobPortalAPI),OnlineJobPortalAPI.Controllers.JobSeekerController.Register (OnlineJobPortalAPI). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-16 23:43:31.519 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5174/swagger/v1/swagger.json - 500 null text/plain; charset=utf-8 910.807ms
